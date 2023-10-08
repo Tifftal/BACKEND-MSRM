@@ -4,8 +4,17 @@
         <div class="card-body">
             <img class="img-sample" src={{ .Image }}/>
             <div class="card-inf">
-                <h2> {{ .Name }} </h2>
-                <h3>No.{{ .Id_sample }}</h3> 
+                <div  class="card-head">
+                    <div>
+                        <h2> {{ .Name }} </h2>
+                        <h3>No.{{ .Id_sample }}</h3> 
+                    </div>
+                    <div>
+                        <form action="/delete?q={{.Id_sample}}" method="POST" class="form">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
                 <span></span>
                 <p><b>Sample Type:</b>  {{ .Type }}</p>
                 <p><b>Sol Sealed:</b>  {{ .Sol_Sealed }}</p>

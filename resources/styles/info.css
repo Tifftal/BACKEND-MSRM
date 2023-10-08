@@ -130,22 +130,11 @@ html {
 
 .body iframe {
     width: 100%;
-    height: 100%;
+    height: 88%;
     background-image: url("../../styles/background.jpg");
     /* background-color: red; */
 
 }
-
-/* .img-sample {
-    position: absolute;
-    top: 60vh;
-    object-fit: contain;
-    width: 80%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    border-radius: 15px;
-} */
 
 .info {
     padding: 0 0 0 10%;
@@ -153,7 +142,18 @@ html {
 }
 
 .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 2%;
+}
+
+.title form {
+    margin-left: 10%;
+}
+
+.title form button {
+    cursor: pointer;
 }
 
 .info h2 {

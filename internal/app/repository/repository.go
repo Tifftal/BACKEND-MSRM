@@ -25,6 +25,7 @@ func New(dsn string) (*Repository, error) {
 func (repository *Repository) GetSampleByID(id int) (*ds.Samples, error) {
 	sample := &ds.Samples{}
 
+	// Assuming "Sample_status" is the correct field name for the status
 	err := repository.db.First(sample, "Id_sample = ?", id).Error
 	if err != nil {
 		return nil, err
@@ -34,13 +35,14 @@ func (repository *Repository) GetSampleByID(id int) (*ds.Samples, error) {
 }
 
 func (repository *Repository) GetAllSamples() ([]ds.Samples, error) {
-	sample := []ds.Samples{}
-	err := repository.db.Order("Sample_status ASC").Order("Id_sample ASC").Find(&sample).Error
+	samples := []ds.Samples{}
+
+	err := repository.db.Where("Sample_status = ?", "Active").Order("Id_sample ASC").Find(&samples).Error
 	if err != nil {
 		return nil, err
 	}
 
-	return sample, nil
+	return samples, nil
 }
 
 func (repository *Repository) GetSampleByName(name string) ([]ds.Samples, error) {
