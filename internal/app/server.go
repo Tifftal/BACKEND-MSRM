@@ -92,10 +92,10 @@ func (a *Application) StartServer() {
 			log.Print(err)
 		}
 		data := gin.H{
-			"css":      "/styles/employee_mode.css",
+			"css":      "/styles/services.css",
 			"Services": sample,
 		}
-		c.HTML(http.StatusOK, "employee_mode.tmpl", data)
+		c.HTML(http.StatusOK, "services.tmpl", data)
 	})
 
 	err := router.Run()

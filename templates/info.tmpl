@@ -14,7 +14,7 @@
                             <h2> {{ .Sample.Name }} </h2>
                             <h3>No.{{ .Sample.Id_sample }}</h3> 
                         </div>
-                        <form action="/delete?q={{.Id_sample}}" method="POST" class="form">
+                        <form action="/delete?q={{.Sample.Id_sample}}" method="POST" class="form">
                             <button type="submit">Delete</button>
                         </form>
                     </div>

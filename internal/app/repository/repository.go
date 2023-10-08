@@ -54,23 +54,8 @@ func (repository *Repository) GetSampleByName(name string) ([]ds.Samples, error)
 	return samples, nil
 }
 
-func (repository *Repository) AddSample(sample *ds.Samples) (bool, error) {
-	err := repository.db.Create(sample).Error
-	if err != nil {
-		return false, err
-	}
-	return true, nil
-}
-
 func (r *Repository) DeleteSampleByID(id int) error {
 	if err := r.db.Exec("UPDATE samples SET sample_status='Deleted' WHERE Id_sample= ?", id).Error; err != nil {
-		return err
-	}
-	return nil
-}
-
-func (r *Repository) ReturnSampleByID(id int) error {
-	if err := r.db.Exec("UPDATE samples SET sample_status='Active' WHERE Id_sample= ?", id).Error; err != nil {
 		return err
 	}
 	return nil
