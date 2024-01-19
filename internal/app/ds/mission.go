@@ -7,6 +7,7 @@ import (
 type Missions struct {
 	Id_mission      uint `json:"Id_mission" gorm:"primarykey;autoIncrement"`
 	User_id         int
+	User_name       string
 	Moderator_id    int
 	Name            string    `json:"Name" gorm:"column:name"`
 	Mission_status  string    `json:"Mission_status" gorm:"column:mission_status"`
